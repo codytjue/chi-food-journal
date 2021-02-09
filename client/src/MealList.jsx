@@ -6,7 +6,7 @@ const MealList = () => {
 
 
   return (
-    <div>
+    <div id="dayTitle">
       Your day so far
     </div>
   )

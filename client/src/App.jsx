@@ -1,18 +1,22 @@
 
 import React from "react";
 import MealList from "./MealList.jsx";
-import AddMeal from "./AddMeal.jsx";
+import AddMealButton from "./AddMealButton.jsx";
 
 class App extends React.Component {
   render() {
     const { name } = this.props;
     return (
-      <div>
+      <div id="container">
+        <div id="header">
         <h1>
           Food Diary
         </h1>
-        <AddMeal/>
+        </div>
+        <div id="body">
+        <AddMealButton/>
         <MealList/>
+        </div>
       </div>
     );
   }
