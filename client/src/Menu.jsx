@@ -6,7 +6,9 @@ const Menu = ({ handleNewMeal, handleDateChange }) => {
 
   const [menuStatus, setStatus] = useState('menu');
 
-  const [currentGoals, setGoals] = useState({})
+  const [currentGoals, setGoals] = useState({});
+
+  const [dailyTotals, setTotals] = useState({});
 
   let handleAddMeal = () => {
     setStatus('meal');
@@ -166,6 +168,35 @@ const Menu = ({ handleNewMeal, handleDateChange }) => {
     return +parseFloat(value).toFixed(2);
   }
 
+  let handleDailyGoalsButton = () => {
+    setStatus('goals');
+    axios.get('/meals')
+    .then((result) => {setTotals(result.data.totals)});
+    axios.get('/goals')
+    .then((result) => {setGoals(result.data)})
+  }
+
+  let goalProgress = []
+
+
+  for (var key in currentGoals) {
+    if (currentGoals[key] !== 0 && key !== '_id' && key !== 'user') {
+      let percentage = (dailyTotals[key]/currentGoals[key]) * 300;
+      let goalExceeded = '';
+      if (percentage > 300) {
+        percentage = 300;
+        goalExceeded = 'Goal Exceeded!'
+      };
+      goalProgress.push(<div><span className="goalMacro">{key.charAt(0).toUpperCase() + key.slice(1)}</span><div className="progressBar"><div className="progress" style={{width: percentage + "px"}}></div></div><span className="goalProgressStats">{dailyTotals[key]} / {currentGoals[key]}</span><br/><span className="goalExceeded">{goalExceeded}</span><br/></div>)
+    }
+  }
+
+  if (goalProgress.length === 0) {
+    goalProgress.push(<span id="noGoals">No current goals</span>)
+  }
+
+  console.log("dailyTotals", dailyTotals)
+
   if (menuStatus === 'menu') {
     return (
       <div id="menu">
@@ -175,6 +206,10 @@ const Menu = ({ handleNewMeal, handleDateChange }) => {
         <br/><br/>
         <button id="changeDateButton" onClick={handleDateButton}>
           Change Date
+        </button>
+        <br/><br/>
+        <button id="dailyGoalsButton" onClick={handleDailyGoalsButton}>
+          Daily Goal Progress
         </button>
         <br/><br/>
         <button id="manageGoalsButton" onClick={handleManageGoalsButton}>
@@ -264,12 +299,22 @@ const Menu = ({ handleNewMeal, handleDateChange }) => {
           <option value="carbs">Carbs</option>
           <option value="fat">Fat</option>
           <option value="protein">Protein</option>
-        </select>
+        </select><br/>
+        <span className="subtext">To remove goal, enter value of 0</span>
         </div>
         <br/><br/>
         <button onClick={handleAddGoal}>Submit</button><br/>
         <button id="backButton" onClick={handleBack}>Back</button>
         </div>
+      </div>
+    );
+  } else if (menuStatus === 'goals') {
+    return (
+      <div id="menu">
+        <span id="goalProgressTitle">Daily Goal Progress</span><br/><br/>
+        {goalProgress}
+        <br/><br/>
+        <button id="backButton" onClick={handleBack}>Back</button>
       </div>
     );
   }

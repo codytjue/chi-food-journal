@@ -20,13 +20,12 @@ body {
   color: white;
   width: 100%;
   height: 80px;
-  margin-bottom: 20px;
   text-align: center;
 }
 
 h1 {
   font-family: 'Varela Round', sans-serif;
-  font-size: 58px;
+  font-size: 72px;
   padding: 0;
   margin: 0
 }
@@ -241,15 +240,28 @@ tbody td {
   font-weight: bold;
 }
 
+.mealDetailsHidden {
+  animation: fadeOutAnimation 1s;
+  position: relative;
+  height: 0px;
+  overflow: hidden;
+}
+
 .mealDetails {
   animation: fadeInAnimation .5s;
   position: relative
 }
 
-@keyframes fadeInAnimation {
-    from { opacity: 0; top: -20px }
-    to   { opacity: 1; top: 0px;}
+@keyframes fadeOutAnimation {
+    from { opacity: 1; top: 0px ; height: auto}
+    to   { opacity: 0; top: -100px; height: 0px;}
 }
+
+@keyframes fadeInAnimation {
+  from { opacity: 0; top: -20px ; height: 0px}
+  to   { opacity: 1; top: 0px; height: auto;}
+}
+
 
 #totalsTitle {
   color: #FFAB4A;
@@ -273,6 +285,7 @@ button {
   border-radius: 15px;
   margin-top: 2px;
   font-weight: bold;
+  outline: none;
 }
 
 button:hover {
@@ -331,4 +344,77 @@ select {
 
 .currentGoalsAmt {
   float: right;
+}
+
+#dailyGoalsButton {
+  font-size: 20px;
+  color:white;
+  font-weight: bold;
+  vertical-align: center;
+}
+
+#goalProgressTitle {
+  font-size: 20px;
+  color: #56C461;
+  font-weight: bold;
+}
+
+#noGoals {
+  font-size: 16px;
+  color: #A0D9A6;
+  font-weight: bold;
+}
+
+.progressBar {
+  background-color: #A0D9A6;
+  width: 300px;
+  height: 20px;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.progress {
+  background-color: #FFAB4A;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.goalProgressStats {
+  font-size: 14px;
+  color:#56C461;
+  font-weight: bold;
+}
+
+.goalMacro {
+  font-size: 18px;
+  color:#56C461;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+}
+
+input[type=date] {
+  border: none;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:#56C461;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1)
+}
+
+.goalExceeded {
+  color:#FFAB4A;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.subtext {
+  font-size: 12px;
+  color: #A0D9A6;
+  font-weight: bold;
 }
