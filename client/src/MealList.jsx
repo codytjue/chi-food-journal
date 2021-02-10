@@ -10,7 +10,7 @@ const MealList = ({ todaysMeals }) => {
 
   let totalsTable;
   if (totals) {
-    totalsTable = <table id="totalsTable">
+    totalsTable = <div><span>Totals</span><table id="totalsTable">
       <thead>
       <tr className="testTitles">
         <td>Calories</td>
@@ -28,6 +28,7 @@ const MealList = ({ todaysMeals }) => {
       </tr>
       </tbody>
     </table>
+    </div>
   }
 
   return (

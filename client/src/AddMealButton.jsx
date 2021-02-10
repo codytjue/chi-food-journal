@@ -86,6 +86,7 @@ const AddMealButton = () => {
 
     axios.post("/meals", meal)
     .then((res) => {console.log("Post response:", res)})
+    .then(() => {setFoods([]); setAddStatus(false)})
   }
 
   if (!addingMeal) {

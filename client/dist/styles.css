@@ -83,7 +83,7 @@ h1 {
   background: none;
   border-bottom: #56C461 3px solid;
   font-size: 20px;
-  color:#56C461;
+  color:#FFAB4A;
   font-weight: bold;
   text-align: center;
 }
@@ -160,6 +160,7 @@ input[type=button]:hover {
   overflow: auto;
   margin: 0 20px 0 0;
   align-content: center;
+  position: relative;
 }
 
 #totalsTable {
@@ -184,5 +185,59 @@ tbody td {
   padding: 5px 0 0 0;
 }
 
+.mealTables {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  background-color: #56C461;
+  padding: 10px;
+  border-spacing: 0;
+  color: white;
+}
 
+.mealDiv {
+  margin: 20px 0 20px 0;
+}
 
+.seehide {
+  font-size: 12px;
+  color:#A0D9A6;
+}
+
+.foodTables {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  background-color: #A0D9A6;
+  padding: 10px;
+  border-spacing: 0;
+  color: white;
+}
+
+.foodDiv {
+  margin: 20px 0 0 0 ;
+}
+
+.foodTitle {
+  font-size: 14px;
+}
+
+.mealDetails {
+  animation: fadeInAnimation .5s;
+  position: relative
+}
+
+@keyframes fadeInAnimation {
+    from { opacity: 0; top: -20px }
+    to   { opacity: 1; top: 0px;}
+}
+
+.empty {
+  animation: fadeOutAnimation .5s;
+  position: relative
+}
+
+@keyframes fadeOutAnimation {
+    from { opacity: 1; top: -20px }
+    to   { opacity: 0; top: 0px;}
+}

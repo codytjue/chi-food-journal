@@ -2,6 +2,7 @@ var Day = require("./schemas.js")
 
 exports.addMeal = (req, res) => {
   let date = new Date();
+  date.setHours(date.getHours()-5);
   let dateFormat = date.toISOString().slice(0, 10);
 
   let currentMeal = req.body
@@ -23,7 +24,6 @@ exports.findMealsByDay = (req, res) => {
   date.setHours(date.getHours()-5);
   let dateFormat = date.toISOString().slice(0, 10);
 
-  console.log("req", req)
 
   Day.findOne({date: dateFormat})
   .then((result) => {res.status(200).send(result)})
