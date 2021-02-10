@@ -25,6 +25,10 @@ var daySchema = new mongoose.Schema({
 
 })
 
+var goalSchema = new mongoose.Schema({
+  user: {type: Number, unique: true}
+})
+
 var Day = mongoose.model('Day', daySchema, 'days');
 
 module.exports = Day;

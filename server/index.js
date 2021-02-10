@@ -12,9 +12,12 @@ app.get('/', (req, res) => {
   res.send('Hello :)')
 })
 
-app.get('/meals', controller.findMealsByDay)
+app.get('/meals', controller.findMealsToday)
+
+app.get('/meals/date', controller.findMealsByDate)
 
 app.post('/meals', controller.addMeal)
+
 
 app.listen(port, ()=> {
   console.log(`MVP is listening at http://localhost:${port}`)

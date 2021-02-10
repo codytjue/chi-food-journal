@@ -19,10 +19,19 @@ exports.addMeal = (req, res) => {
   .catch((err) => console.log('Error:', err))
 }
 
-exports.findMealsByDay = (req, res) => {
+exports.findMealsToday = (req, res) => {
   let date = new Date();
   date.setHours(date.getHours()-5);
   let dateFormat = date.toISOString().slice(0, 10);
+
+
+  Day.findOne({date: dateFormat})
+  .then((result) => {res.status(200).send(result)})
+}
+
+exports.findMealsByDate = (req, res) => {
+  dateFormat = req.query.date;
+
 
 
   Day.findOne({date: dateFormat})

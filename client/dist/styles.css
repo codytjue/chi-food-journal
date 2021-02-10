@@ -27,6 +27,8 @@ body {
 h1 {
   font-family: 'Varela Round', sans-serif;
   font-size: 58px;
+  padding: 0;
+  margin: 0
 }
 
 #body {
@@ -36,7 +38,7 @@ h1 {
   text-align: center;
 }
 
-#addmeal {
+#menu {
   background-color: white;
   min-height: 70px;
   max-height: 100vh;
@@ -47,14 +49,26 @@ h1 {
 }
 
 
-#addMealTitle {
+#addMealButton {
   font-size: 20px;
-  color:#56C461;
+  color:white;
   font-weight: bold;
   vertical-align: center;
 }
 
-#addMealTitle:hover {
+#addMealButton:hover {
+  cursor: pointer;
+}
+
+
+#changeDateButton {
+  font-size: 20px;
+  color:white;
+  font-weight: bold;
+  vertical-align: center;
+}
+
+#changeDateButton:hover {
   cursor: pointer;
 }
 
@@ -90,13 +104,16 @@ h1 {
 
 
 input[type=text] {
-  border: #56C461 1px solid;
+  border: #56C461 2px solid;
   border-right: none;
   height: 20px;
   width: 50%;
   outline: none;
   vertical-align: bottom;
   border-radius: 10px 0 0 10px;
+  color: #56C461;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }
 
 input[type=button] {
@@ -105,13 +122,14 @@ input[type=button] {
   color: white;
   text-decoration: none;
   cursor: pointer;
-  height: 24px;
-  width: 24px;
+  height: 26px;
+  width: 26px;
   outline: none;
   font-size: 20px;
   vertical-align: bottom;
   border-radius: 0 10px 10px 0;
 }
+
 
 ::placeholder {
   color: #A0D9A6;
@@ -129,10 +147,9 @@ input[type=submit] {
   color: white;
   text-decoration: none;
   margin: 4px 2px;
-  padding: 6px 10px;
+  padding: 10px 20px;
   cursor: pointer;
   font-size: 18px;
-  font-family: 'Varela Round', sans-serif;
   border-radius: 15px;
   margin-top: 2px;
   font-weight: bold;
@@ -219,7 +236,9 @@ tbody td {
 }
 
 .foodTitle {
-  font-size: 14px;
+  font-size: 12px;
+  color: #56C461;
+  font-weight: bold;
 }
 
 .mealDetails {
@@ -232,12 +251,31 @@ tbody td {
     to   { opacity: 1; top: 0px;}
 }
 
-.empty {
-  animation: fadeOutAnimation .5s;
-  position: relative
+#totalsTitle {
+  color: #FFAB4A;
+  font-size: 18px;
 }
 
-@keyframes fadeOutAnimation {
-    from { opacity: 1; top: -20px }
-    to   { opacity: 0; top: 0px;}
+.mealTitle {
+  color:#56C461;
+  font-size: 16px;
+}
+
+button {
+  background-color: #56C461;
+  border: none;
+  color: white;
+  text-decoration: none;
+  margin: 4px 2px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 15px;
+  margin-top: 2px;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #FFAB4A;
+  transition: 0.5s
 }

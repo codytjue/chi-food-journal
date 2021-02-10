@@ -1,7 +1,7 @@
 
 import React from "react";
 import MealList from "./MealList.jsx";
-import AddMealButton from "./AddMealButton.jsx";
+import Menu from "./Menu.jsx";
 import axios from "axios";
 
 class App extends React.Component {
@@ -14,7 +14,22 @@ class App extends React.Component {
   componentDidMount() {
 
     axios.get('/meals')
-    .then((res) => {console.log("get results:", res) ;this.setState({todaysMeals: res.data})})
+    .then((res) => {this.setState({todaysMeals: res.data})})
+  }
+
+  handleNewMeal () {
+    axios.get('/meals')
+    .then((res) => {this.setState({todaysMeals: res.data})})
+  }
+
+  handleDateChange () {
+    var selectedDate = document.getElementById("dateSelector").value;
+
+    let params = {date: selectedDate}
+
+    axios.get('/meals/date', { params })
+    .then((res) => {this.setState({todaysMeals: res.data})})
+
   }
 
   render() {
@@ -28,7 +43,7 @@ class App extends React.Component {
 
         </div>
         <div id="body">
-        <AddMealButton/>
+        <Menu handleNewMeal={this.handleNewMeal.bind(this)} handleDateChange={this.handleDateChange.bind(this)}/>
         <MealList todaysMeals={this.state.todaysMeals}/>
         </div>
       </div>

@@ -5,16 +5,33 @@ const MealList = ({ todaysMeals }) => {
 
   let meals = todaysMeals.meals || []
   let totals = todaysMeals.totals
+  let mealsDate;
+  let mealsDateFormat;
 
-  console.log("mealies:", todaysMeals)
+  if (todaysMeals.date) {
+    mealsDate = todaysMeals.date.slice(0, 10);
+    let d = new Date(mealsDate);
+    d.setHours(d.getHours()+5);
+    mealsDateFormat = d.toDateString()
+  }
 
-  let toFixedDecimal =(value) =>{
+  let todaysDate = new Date()
+  let todaysDateFormat = todaysDate.toISOString().slice(0, 10);
+
+  let toFixedDecimal = (value) =>{
     return +parseFloat(value).toFixed(2);
+  }
+
+  let mealListTitle;
+  if (mealsDate === todaysDateFormat) {
+    mealListTitle = <span id="ydsf">Your Day So Far : </span>
+  } else {
+    mealListTitle = <span id="ydsf">Your Day On: {mealsDateFormat} </span>
   }
 
   let totalsTable;
   if (totals) {
-    totalsTable = <div><span>Totals</span><table id="totalsTable">
+    totalsTable = <div><span id="totalsTitle">Totals</span><table id="totalsTable">
       <thead>
       <tr className="testTitles">
         <td>Calories</td>
@@ -37,7 +54,8 @@ const MealList = ({ todaysMeals }) => {
 
   return (
     <div id="dayTitle">
-      <span id="ydsf">Your Day So Far : </span><br/><br/>
+      {mealListTitle}
+      <br/><br/>
       {totalsTable}
       <br/>
       {meals.map((meal, index) => {

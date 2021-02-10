@@ -48,7 +48,7 @@ const Meal = ({ meal }) => {
 
   return (
     <div className="mealDiv">
-      {meal.name}
+      <span class="mealTitle">{meal.name}</span>
       <table className="mealTables">
       <thead>
       <tr className="testTitles">
@@ -60,10 +60,10 @@ const Meal = ({ meal }) => {
       </thead>
       <tbody>
       <tr>
-        <td>{meal.totals.calories}</td>
-        <td>{meal.totals.carbs}</td>
-        <td>{meal.totals.fat}</td>
-        <td>{meal.totals.protein}</td>
+        <td>{toFixedDecimal(meal.totals.calories)}</td>
+        <td>{toFixedDecimal(meal.totals.carbs)}</td>
+        <td>{toFixedDecimal(meal.totals.fat)}</td>
+        <td>{toFixedDecimal(meal.totals.protein)}</td>
       </tr>
       </tbody>
     </table>
