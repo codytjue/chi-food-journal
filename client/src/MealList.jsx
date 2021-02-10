@@ -8,6 +8,10 @@ const MealList = ({ todaysMeals }) => {
 
   console.log("mealies:", todaysMeals)
 
+  let toFixedDecimal =(value) =>{
+    return +parseFloat(value).toFixed(2);
+  }
+
   let totalsTable;
   if (totals) {
     totalsTable = <div><span>Totals</span><table id="totalsTable">
@@ -21,10 +25,10 @@ const MealList = ({ todaysMeals }) => {
       </thead>
       <tbody>
       <tr>
-        <td>{todaysMeals.totals.calories}</td>
-        <td>{todaysMeals.totals.carbs}</td>
-        <td>{todaysMeals.totals.fat}</td>
-        <td>{todaysMeals.totals.protein}</td>
+        <td>{toFixedDecimal(todaysMeals.totals.calories)}</td>
+        <td>{toFixedDecimal(todaysMeals.totals.carbs)}</td>
+        <td>{toFixedDecimal(todaysMeals.totals.fat)}</td>
+        <td>{toFixedDecimal(todaysMeals.totals.protein)}</td>
       </tr>
       </tbody>
     </table>

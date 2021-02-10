@@ -12,9 +12,13 @@ const Meal = ({ meal }) => {
     }
   }
 
+  let toFixedDecimal =(value) =>{
+    return +parseFloat(value).toFixed(2);
+  }
+
   let details;
   if (seeDetails === "See Details") {
-    details = '';
+    details = <div className="empty"></div>;
   } else {
     details = <div className="mealDetails">{meal.foods.map((food) => {
       return (
@@ -31,10 +35,10 @@ const Meal = ({ meal }) => {
       </thead>
       <tbody>
       <tr>
-        <td>{food.calories}</td>
-        <td>{food.carbs}</td>
-        <td>{food.fat}</td>
-        <td>{food.protein}</td>
+        <td>{toFixedDecimal(food.calories)}</td>
+        <td>{toFixedDecimal(food.carbs)}</td>
+        <td>{toFixedDecimal(food.fat)}</td>
+        <td>{toFixedDecimal(food.protein)}</td>
       </tr>
       </tbody>
     </table>
