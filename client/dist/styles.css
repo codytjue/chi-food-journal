@@ -1,3 +1,7 @@
+body {
+  background-color: #56C461;
+}
+
 #app {
   width: 100%;
   margin: 0;
@@ -16,28 +20,50 @@
   color: white;
   width: 100%;
   height: 80px;
-  padding: 10px 0 0 0;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   text-align: center;
+}
+
+h1 {
+  font-family: 'Varela Round', sans-serif;
+  font-size: 58px;
 }
 
 #body {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10%;
+  gap: 5%;
   text-align: center;
 }
+
+#addmeal {
+  background-color: white;
+  min-height: 70px;
+  max-height: 100vh;
+  padding: 30px 10px 10px 20px;
+  border-radius: 70px;
+  overflow: auto;
+  margin: 0 0 0 20px;
+}
+
 
 #addMealTitle {
   font-size: 20px;
   color:#56C461;
   font-weight: bold;
+  vertical-align: center;
+}
+
+#addMealTitle:hover {
+  cursor: pointer;
 }
 
 #addMealPlus {
   font-size: 20px;
   color:#56C461;
   font-weight: bold;
+  font-size: 28px;
+  vertical-align: center;
 }
 
 #addMealTitle:hover + #addMealPlus {
@@ -48,6 +74,7 @@
 #addMealPlus:hover {
   color: #FFAB4A;
   transition: 0.5s;
+  cursor: pointer;
 }
 
 #mealNameInput {
@@ -64,6 +91,12 @@
 
 input[type=text] {
   border: #56C461 1px solid;
+  border-right: none;
+  height: 20px;
+  width: 50%;
+  outline: none;
+  vertical-align: bottom;
+  border-radius: 10px 0 0 10px;
 }
 
 input[type=button] {
@@ -71,13 +104,22 @@ input[type=button] {
   border: none;
   color: white;
   text-decoration: none;
-  margin: 4px 2px;
   cursor: pointer;
+  height: 24px;
+  width: 24px;
+  outline: none;
+  font-size: 20px;
+  vertical-align: bottom;
+  border-radius: 0 10px 10px 0;
+}
+
+::placeholder {
+  color: #A0D9A6;
 }
 
 .removeFoodItem {
   font-size: 10px;
-  color: #999
+  color: #A0D9A6;
 }
 
 
@@ -87,14 +129,60 @@ input[type=submit] {
   color: white;
   text-decoration: none;
   margin: 4px 2px;
-  padding: 4px 6px;
+  padding: 6px 10px;
   cursor: pointer;
+  font-size: 18px;
+  font-family: 'Varela Round', sans-serif;
+  border-radius: 15px;
+  margin-top: 2px;
+  font-weight: bold;
+}
+
+input[type=submit]:hover {
+  background-color: #FFAB4A;
+  transition: 0.5s;
+}
+
+input[type=button]:hover {
+  background-color: #FFAB4A;
+  transition: 0.5s;
 }
 
 #dayTitle {
   font-size: 20px;
   color:#56C461;
   font-weight: bold;
+  background-color: white;
+  min-height: 70px;
+  max-height: 100vh;
+  padding: 30px 20px 30px 20px;
+  border-radius: 70px;
+  overflow: auto;
+  margin: 0 20px 0 0;
+  align-content: center;
 }
+
+#totalsTable {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  background-color: #FFAB4A;
+  padding: 10px;
+  border-spacing: 0;
+  color: white;
+}
+
+.testTitles td {
+  border-bottom: 2px solid white;
+}
+
+td {
+  padding: 0 10px 0 10px
+}
+
+tbody td {
+  padding: 5px 0 0 0;
+}
+
 
 

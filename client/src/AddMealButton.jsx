@@ -55,7 +55,37 @@ const AddMealButton = () => {
 
   }
 
-  let handleSubmitMeal = () => {
+  let handleSubmitMeal = (e) => {
+    e.preventDefault();
+    let name = document.getElementById("mealNameInput").value
+    if (name.length === 0) {
+      alert("Please enter valid meal name");
+      return;
+    }
+    let foods = currentFoods;
+    if (foods.length === 0) {
+      alert("Please add at least one food item");
+      return;
+    }
+
+    let totals = {
+      calories: 0,
+      carbs: 0,
+      fat: 0,
+      protein: 0
+    }
+
+    for (let i = 0; i < foods.length; i++) {
+      totals.calories += foods[i].calories;
+      totals.carbs += foods[i].carbs;
+      totals.fat += foods[i].fat;
+      totals.protein += foods[i].protein;
+    }
+
+    let meal = { name, foods, totals }
+
+    axios.post("/meals", meal)
+    .then((res) => {console.log("Post response:", res)})
   }
 
   if (!addingMeal) {
@@ -66,16 +96,16 @@ const AddMealButton = () => {
     )
   } else {
     return (
-      <div id="addmeal2">
+      <div id="addmeal">
         <input id="mealNameInput" placeholder="Meal Name"></input>
         <br/><br/>
         {currentFoods.map((food, index) => {
           return <div className="mealwip" key={index} id={index}>
              <span>{food.qty} {food.unit} {food.food}</span><br/>
             <span>Calories: {food.calories}</span><br/>
-            <span>Carbohydrates: {food.carbs}</span><br/>
-            <span>Fat: {food.fat}</span><br/>
-            <span>Protein: {food.protein}</span><br/>
+            <span>Carbohydrates: {food.carbs} g</span><br/>
+            <span>Fat: {food.fat} g</span><br/>
+            <span>Protein: {food.protein} g</span><br/>
             <span className="removeFoodItem" onClick={handleRemoveFood}>Remove item</span>
             <br/><br/>
             </div>;
@@ -83,7 +113,7 @@ const AddMealButton = () => {
         <form>
           <input type="text" id="search"></input>
           <input id="foodSubmit" type="button" value="+" onClick={handleAddFood}></input><br/><br/>
-          <input type="submit" value="Finish Meal"></input>
+          <input type="submit" value="Finish Meal" onClick={handleSubmitMeal}></input>
         </form>
       </div>
     );
