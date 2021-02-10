@@ -1,4 +1,4 @@
-var Day = require("./schemas.js")
+var schemas = require("./schemas.js")
 
 exports.addMeal = (req, res) => {
   let date = new Date();
@@ -9,7 +9,7 @@ exports.addMeal = (req, res) => {
 
   console.log("current meal:", currentMeal)
 
-  Day.findOneAndUpdate({date: dateFormat}, {$push: {meals: currentMeal}, $inc: {
+  schemas.Day.findOneAndUpdate({date: dateFormat}, {$push: {meals: currentMeal}, $inc: {
     'totals.calories': currentMeal.totals.calories,
     'totals.carbs': currentMeal.totals.carbs,
     'totals.fat': currentMeal.totals.fat,
@@ -25,7 +25,7 @@ exports.findMealsToday = (req, res) => {
   let dateFormat = date.toISOString().slice(0, 10);
 
 
-  Day.findOne({date: dateFormat})
+  schemas.Day.findOne({date: dateFormat})
   .then((result) => {res.status(200).send(result)})
 }
 
@@ -34,6 +34,19 @@ exports.findMealsByDate = (req, res) => {
 
 
 
-  Day.findOne({date: dateFormat})
+  schemas.Day.findOne({date: dateFormat})
+  .then((result) => {res.status(200).send(result)})
+}
+
+exports.addGoal = (req, res) => {
+
+
+  schemas.Goal.findOneAndUpdate({user: 1}, req.body ,{upsert: true, new: true})
+  .then((result) => {res.send(result)})
+}
+
+exports.findGoal = (req, res) => {
+
+  schemas.Goal.findOne({user: 1})
   .then((result) => {res.status(200).send(result)})
 }

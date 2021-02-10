@@ -6,6 +6,8 @@ const Menu = ({ handleNewMeal, handleDateChange }) => {
 
   const [menuStatus, setStatus] = useState('menu');
 
+  const [currentGoals, setGoals] = useState({})
+
   let handleAddMeal = () => {
     setStatus('meal');
   };
@@ -115,6 +117,51 @@ const Menu = ({ handleNewMeal, handleDateChange }) => {
     let params = {date: selectedDate}
   }
 
+  let handleManageGoalsButton = () => {
+    setStatus('manage');
+    axios.get('/goals')
+    .then((result) => {setGoals(result.data)})
+  }
+
+  let currentGoalsDisplay = 'none';
+  let currentCal = "none";
+  let currentCar = "none";
+  let currentFat = "none";
+  let currentPro = "none";
+
+  console.log("currentGoals:", currentGoals)
+    if (currentGoals.calories !== 0) {
+      currentCal = currentGoals.calories
+    }
+    if (currentGoals.carbs !== 0) {
+      currentCar = currentGoals.carbs
+    }
+    if (currentGoals.fat !== 0) {
+      currentFat = currentGoals.fat
+    }
+    if (currentGoals.protein !== 0) {
+      currentPro = currentGoals.protein
+    }
+
+    currentGoalsDisplay = <div id="currentGoalsDisplay">
+      <span className="currentGoalsMacro">Calories: </span><span className="currentGoalsAmt">{currentCal}</span><br/>
+      <span className="currentGoalsMacro">Carbs: </span><span className="currentGoalsAmt">{currentCar}</span><br/>
+      <span className="currentGoalsMacro">Fat: </span><span className="currentGoalsAmt">{currentFat}</span><br/>
+      <span className="currentGoalsMacro">Protein: </span><span className="currentGoalsAmt">{currentPro}</span>
+    </div>
+
+  let handleAddGoal = () => {
+    let amount = document.getElementById("goalText").value;
+    let macro = document.getElementById("macroSelection").value;
+    let amountNum = parseInt(amount, 10)
+
+    let request = {};
+    request[macro] = amountNum;
+
+    axios.post('/goals', request)
+    .then((result) => {setGoals(result.data)})
+  }
+
   let toFixedDecimal =(value) =>{
     return +parseFloat(value).toFixed(2);
   }
@@ -128,6 +175,10 @@ const Menu = ({ handleNewMeal, handleDateChange }) => {
         <br/><br/>
         <button id="changeDateButton" onClick={handleDateButton}>
           Change Date
+        </button>
+        <br/><br/>
+        <button id="manageGoalsButton" onClick={handleManageGoalsButton}>
+          Manage Goals
         </button>
       </div>
     );
@@ -196,6 +247,29 @@ const Menu = ({ handleNewMeal, handleDateChange }) => {
         <input type="date" id="dateSelector"></input><br/><br/>
         <button onClick={handleDateChange}>Submit</button><br/>
         <button id="backButton" onClick={handleBackDate}>Back</button>
+      </div>
+    );
+  } else if (menuStatus === 'manage') {
+    return (
+      <div id="menu">
+        <div id="addGoalsPage">
+        <span>Current Goals:</span><br/><br/>
+          {currentGoalsDisplay}
+          <br/><br/>
+        <span>Add/Edit Goal:</span><br/><br/>
+        <div id="goalSelector">
+        <input type="text" id="goalText"></input>
+        <select id="macroSelection">
+          <option value="calories">Calories</option>
+          <option value="carbs">Carbs</option>
+          <option value="fat">Fat</option>
+          <option value="protein">Protein</option>
+        </select>
+        </div>
+        <br/><br/>
+        <button onClick={handleAddGoal}>Submit</button><br/>
+        <button id="backButton" onClick={handleBack}>Back</button>
+        </div>
       </div>
     );
   }

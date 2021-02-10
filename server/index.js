@@ -16,8 +16,11 @@ app.get('/meals', controller.findMealsToday)
 
 app.get('/meals/date', controller.findMealsByDate)
 
+app.get('/goals', controller.findGoal)
+
 app.post('/meals', controller.addMeal)
 
+app.post('/goals', controller.addGoal)
 
 app.listen(port, ()=> {
   console.log(`MVP is listening at http://localhost:${port}`)

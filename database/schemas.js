@@ -26,9 +26,13 @@ var daySchema = new mongoose.Schema({
 })
 
 var goalSchema = new mongoose.Schema({
-  user: {type: Number, unique: true}
+  user: {type: Number, unique: true},
+  calories: {type: Number, default: 0},
+  carbs: {type: Number, default: 0},
+  fat: {type: Number, default: 0},
+  protein: {type: Number, default: 0}
 })
 
-var Day = mongoose.model('Day', daySchema, 'days');
+exports.Day = mongoose.model('Day', daySchema, 'days');
 
-module.exports = Day;
+exports.Goal = mongoose.model('Goal', goalSchema, 'goals')
