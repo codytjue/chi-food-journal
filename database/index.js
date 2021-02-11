@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-var mongoUri = "mongodb://localhost:27017/mvp"
+var mongoUri = process.env.MONGODB_URI || "mongodb://localhost:27017/mvp"
 mongoose.Promise = Promise;
 
 // Connect Mongoose to our local MongoDB via URI specified above

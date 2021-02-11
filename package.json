@@ -7,6 +7,7 @@
   "author": "",
   "license": "ISC",
   "scripts": {
+    "start": "node server/index.js",
     "server": "nodemon server/index.js",
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack --mode development --watch",

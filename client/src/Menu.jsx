@@ -17,21 +17,9 @@ const Menu = ({ handleNewMeal, handleDateChange }) => {
   let handleAddFood = (event) => {
     event.preventDefault();
     var search = document.getElementById("search");
-    // axios
-    //   .post(
-    //     "https://trackapi.nutritionix.com/v2/natural/nutrients",
-    //     { query: search.value },
-    //     {
-    //       headers: {
-    //         "x-app-id": "ec57e159",
-    //         "x-app-key": "835fab70b7506103c340e1e66ba3079c",
-    //         "x-remote-user-id": 0,
-    //       },
-    //     }
-    //   )
+
       axios.get('/nutrition', { params: {search: search.value}})
       .then((result) => {
-        console.log("result:", result.data.foods[0]);
         setFoods([
           ...currentFoods,
           {
@@ -91,7 +79,6 @@ const Menu = ({ handleNewMeal, handleDateChange }) => {
     axios
       .post("/meals", meal)
       .then((res) => {
-        console.log("Post response:", res);
       })
       .then(() => {
         setFoods([]);
@@ -131,7 +118,6 @@ const Menu = ({ handleNewMeal, handleDateChange }) => {
   let currentFat = "none";
   let currentPro = "none";
 
-  console.log("currentGoals:", currentGoals)
     if (currentGoals.calories !== 0) {
       currentCal = currentGoals.calories
     }
@@ -194,8 +180,6 @@ const Menu = ({ handleNewMeal, handleDateChange }) => {
   if (goalProgress.length === 0) {
     goalProgress.push(<span id="noGoals">No current goals</span>)
   }
-
-  console.log("dailyTotals", dailyTotals)
 
   if (menuStatus === 'menu') {
     return (
