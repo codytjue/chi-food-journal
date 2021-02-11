@@ -1,5 +1,5 @@
 body {
-  background-color: #56C461;
+  background-color: #4F4F4F;
 }
 
 #app {
@@ -16,7 +16,7 @@ body {
 }
 
 #header {
-  background-color: #56C461;
+  background-color: #4F4F4F;
   color: white;
   width: 100%;
   height: 80px;
@@ -75,19 +75,19 @@ h1 {
 
 #addMealPlus {
   font-size: 20px;
-  color:#56C461;
+  color:#4F4F4F;
   font-weight: bold;
   font-size: 28px;
   vertical-align: center;
 }
 
 #addMealTitle:hover + #addMealPlus {
-  color: #FFAB4A;
+  color: #000000;
   transition: 0.5s;
 }
 
 #addMealPlus:hover {
-  color: #FFAB4A;
+  color: #000000;
   transition: 0.5s;
   cursor: pointer;
 }
@@ -96,29 +96,29 @@ h1 {
   outline: none;
   border: none;
   background: none;
-  border-bottom: #56C461 3px solid;
+  border-bottom: #4F4F4F 3px solid;
   font-size: 20px;
-  color:#FFAB4A;
+  color:#000000;
   font-weight: bold;
   text-align: center;
 }
 
 
 input[type=text] {
-  border: #56C461 2px solid;
+  border: #4F4F4F 2px solid;
   border-right: none;
   height: 20px;
   width: 50%;
   outline: none;
   vertical-align: bottom;
   border-radius: 10px 0 0 10px;
-  color: #56C461;
+  color: #4F4F4F;
   font-family:Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
 
 input[type=button] {
-  background-color: #56C461;
+  background-color: #4F4F4F;
   border: none;
   color: white;
   text-decoration: none;
@@ -133,17 +133,17 @@ input[type=button] {
 
 
 ::placeholder {
-  color: #A0D9A6;
+  color: #828282;
 }
 
 .removeFoodItem {
   font-size: 10px;
-  color: #A0D9A6;
+  color: #828282;
 }
 
 
 input[type=submit] {
-  background-color: #56C461;
+  background-color: #4F4F4F;
   border: none;
   color: white;
   text-decoration: none;
@@ -157,18 +157,18 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: #FFAB4A;
+  background-color: #000000;
   transition: 0.5s;
 }
 
 input[type=button]:hover {
-  background-color: #FFAB4A;
+  background-color: #000000;
   transition: 0.5s;
 }
 
 #dayTitle {
   font-size: 20px;
-  color:#56C461;
+  color:#4F4F4F;
   font-weight: bold;
   background-color: white;
   min-height: 70px;
@@ -187,7 +187,7 @@ input[type=button]:hover {
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
-  background-color: #FFAB4A;
+  background-color: #000000;
   padding: 10px;
   border-spacing: 0;
   color: white;
@@ -209,7 +209,7 @@ tbody td {
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
-  background-color: #56C461;
+  background-color: #4F4F4F;
   padding: 10px;
   border-spacing: 0;
   color: white;
@@ -221,7 +221,7 @@ tbody td {
 
 .seehide {
   font-size: 12px;
-  color:#A0D9A6;
+  color:#828282;
 }
 
 .seehide:hover {
@@ -232,7 +232,7 @@ tbody td {
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
-  background-color: #A0D9A6;
+  background-color: #828282;
   padding: 10px;
   border-spacing: 0;
   color: white;
@@ -244,7 +244,7 @@ tbody td {
 
 .foodTitle {
   font-size: 12px;
-  color: #56C461;
+  color: #4F4F4F;
   font-weight: bold;
 }
 
@@ -272,17 +272,17 @@ tbody td {
 
 
 #totalsTitle {
-  color: #FFAB4A;
+  color: #000000;
   font-size: 18px;
 }
 
 .mealTitle {
-  color:#56C461;
+  color:#4F4F4F;
   font-size: 16px;
 }
 
 button {
-  background-color: #56C461;
+  background-color: #4F4F4F;
   border: none;
   color: white;
   text-decoration: none;
@@ -297,7 +297,7 @@ button {
 }
 
 button:hover {
-  background-color: #FFAB4A;
+  background-color: #000000;
   transition: 0.5s
 }
 
@@ -311,8 +311,8 @@ button:hover {
 select {
   width: 80px;
   font-family: Arial, Helvetica, sans-serif;
-  border: solid #56C461 2px;
-  background-color: #56C461;
+  border: solid #4F4F4F 2px;
+  background-color: #4F4F4F;
   color: white;
   border-radius: 0 20px 20px 0;
   outline: none;
@@ -323,9 +323,9 @@ select {
 #goalText {
   width: 80px;
   font-family: Arial, Helvetica, sans-serif;
-  border: solid #56C461 2px;
+  border: solid #4F4F4F 2px;
   background-color: white;
-  color: #56C461;
+  color: #4F4F4F;
   border-radius: 20px 0 0 20px;
   outline: none;
   border-right: none;
@@ -336,14 +336,14 @@ select {
 
 #addGoalsPage {
   font-family: Arial, Helvetica, sans-serif;
-  color: #56C461;
+  color: #4F4F4F;
   font-weight: bold;
 }
 
 #currentGoalsDisplay {
   width: 120px;
   margin: auto;
-  color:#FFAB4A
+  color:#000000
 }
 
 .currentGoalsMacro {
@@ -363,18 +363,18 @@ select {
 
 #goalProgressTitle {
   font-size: 20px;
-  color: #56C461;
+  color: #4F4F4F;
   font-weight: bold;
 }
 
 #noGoals {
   font-size: 16px;
-  color: #A0D9A6;
+  color: #828282;
   font-weight: bold;
 }
 
 .progressBar {
-  background-color: #A0D9A6;
+  background-color: #828282;
   width: 300px;
   height: 20px;
   border-radius: 10px;
@@ -382,20 +382,20 @@ select {
 }
 
 .progress {
-  background-color: #FFAB4A;
+  background-color: #000000;
   height: 20px;
   border-radius: 10px;
 }
 
 .goalProgressStats {
   font-size: 14px;
-  color:#56C461;
+  color:#4F4F4F;
   font-weight: bold;
 }
 
 .goalMacro {
   font-size: 18px;
-  color:#56C461;
+  color:#4F4F4F;
   font-weight: bold;
   margin: 0 0 10px 0;
 }
@@ -404,7 +404,7 @@ input[type=date] {
   border: none;
   outline: none;
   font-family: Arial, Helvetica, sans-serif;
-  background-color:#56C461;
+  background-color:#4F4F4F;
   color: white;
   font-weight: bold;
   padding: 10px;
@@ -416,17 +416,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .goalExceeded {
-  color:#FFAB4A;
+  color:#000000;
   font-weight: bold;
   font-size: 16px;
 }
 
 .subtext {
   font-size: 12px;
-  color: #A0D9A6;
+  color: #828282;
   font-weight: bold;
 }
-
 
 .colorOptionCarrot {
   font-weight: bold;
@@ -503,6 +502,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .colorOptionCarrot:hover, .colorOptionGray:hover, .colorOptionBerry {
   cursor: pointer;
 }
+
 
 @media only screen and (max-width: 600px) {
   #body {

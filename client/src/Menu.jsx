@@ -171,14 +171,36 @@ const Menu = ({ handleNewMeal, handleDateChange }) => {
       let goalExceeded = '';
       if (percentage > 300) {
         percentage = 300;
-        goalExceeded = 'Goal Exceeded!'
+        goalExceeded = <div><span className="goalExceeded">Goal Exceeded!</span><br/></div>
       };
-      goalProgress.push(<div><span className="goalMacro">{key.charAt(0).toUpperCase() + key.slice(1)}</span><div className="progressBar"><div className="progress" style={{width: percentage + "px"}}></div></div><span className="goalProgressStats">{dailyTotals[key]} / {currentGoals[key]}</span><br/><span className="goalExceeded">{goalExceeded}</span><br/></div>)
+      goalProgress.push(<div><span className="goalMacro">{key.charAt(0).toUpperCase() + key.slice(1)}</span><div className="progressBar"><div className="progress" style={{width: percentage + "px"}}></div></div><span className="goalProgressStats">{dailyTotals[key]} / {currentGoals[key]}</span><br/>{goalExceeded}<br/></div>)
     }
   }
 
   if (goalProgress.length === 0) {
     goalProgress.push(<span id="noGoals">No current goals</span>)
+  }
+
+  let handleSettingsButton = () => {
+    setStatus("settings")
+  }
+
+  let handleSchemeBerry = () => {
+    var theme = document.getElementsByTagName('link')[0];
+
+    theme.setAttribute('href', './berry.css');
+  }
+
+  let handleSchemeCarrot = () => {
+    var theme = document.getElementsByTagName('link')[0];
+
+    theme.setAttribute('href', './styles.css');
+  }
+
+  let handleSchemeGray = () => {
+    var theme = document.getElementsByTagName('link')[0];
+
+    theme.setAttribute('href', './bw.css');
   }
 
   if (menuStatus === 'menu') {
@@ -198,6 +220,10 @@ const Menu = ({ handleNewMeal, handleDateChange }) => {
         <br/><br/>
         <button id="manageGoalsButton" onClick={handleManageGoalsButton}>
           Manage Goals
+        </button>
+        <br/><br/>
+        <button id="manageSettingsButton" onClick={handleSettingsButton}>
+          Settings
         </button>
       </div>
     );
@@ -297,6 +323,25 @@ const Menu = ({ handleNewMeal, handleDateChange }) => {
       <div id="menu">
         <span id="goalProgressTitle">Daily Goal Progress</span><br/><br/>
         {goalProgress}
+        <br/><br/>
+        <button id="backButton" onClick={handleBack}>Back</button>
+      </div>
+    );
+  } else if (menuStatus === 'settings') {
+    return (
+      <div id="menu">
+        <span id="goalProgressTitle">Select Color Palette:</span><br/><br/>
+        <div className="colorOptionCarrot" onClick={handleSchemeCarrot}>
+        <span>Carrot</span><br/><span id="carrot1"></span><span id="carrot2"></span><br/>
+        </div>
+        <br/>
+        <div className="colorOptionBerry" onClick={handleSchemeBerry}>
+        <span>Berry</span><br/><span id="berry1"></span><span id="berry2"></span><br/>
+        </div>
+        <br/>
+        <div className="colorOptionGray" onClick={handleSchemeGray}>
+        <span>Grayscale</span><br/><span id="gray1"></span><span id="gray2"></span><br/>
+        </div>
         <br/><br/>
         <button id="backButton" onClick={handleBack}>Back</button>
       </div>
