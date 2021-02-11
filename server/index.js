@@ -3,6 +3,8 @@ const app = express();
 const port = 3434;
 const controller = require('../database/controller.js');
 const bodyParser = require('body-parser');
+const { appId, appKey } = require('../config.js')
+const axios = require('axios')
 
 app.use(express.static(__dirname + "/../client/dist"));
 app.use(bodyParser.urlencoded());
@@ -21,6 +23,8 @@ app.get('/goals', controller.findGoal)
 app.post('/meals', controller.addMeal)
 
 app.post('/goals', controller.addGoal)
+
+app.get('/nutrition', controller.getNutritionInfo)
 
 app.listen(port, ()=> {
   console.log(`MVP is listening at http://localhost:${port}`)

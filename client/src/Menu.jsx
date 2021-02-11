@@ -17,19 +17,19 @@ const Menu = ({ handleNewMeal, handleDateChange }) => {
   let handleAddFood = (event) => {
     event.preventDefault();
     var search = document.getElementById("search");
-    console.log(search.value);
-    axios
-      .post(
-        "https://trackapi.nutritionix.com/v2/natural/nutrients",
-        { query: search.value },
-        {
-          headers: {
-            "x-app-id": "ec57e159",
-            "x-app-key": "835fab70b7506103c340e1e66ba3079c",
-            "x-remote-user-id": 0,
-          },
-        }
-      )
+    // axios
+    //   .post(
+    //     "https://trackapi.nutritionix.com/v2/natural/nutrients",
+    //     { query: search.value },
+    //     {
+    //       headers: {
+    //         "x-app-id": "ec57e159",
+    //         "x-app-key": "835fab70b7506103c340e1e66ba3079c",
+    //         "x-remote-user-id": 0,
+    //       },
+    //     }
+    //   )
+      axios.get('/nutrition', { params: {search: search.value}})
       .then((result) => {
         console.log("result:", result.data.foods[0]);
         setFoods([
