@@ -2,14 +2,21 @@ import React, { useState } from "react";
 
 const Meal = ({ meal }) => {
 
-  const [seeDetails, setDetails] = useState("See Details")
+  const [seeDetails, setDetails] = useState("init")
 
   let handleDetails = () => {
-    if (seeDetails === "See Details") {
+    if (seeDetails === "See Details" || seeDetails === "init") {
       setDetails("Hide Details")
     } else if (seeDetails === "Hide Details") {
       setDetails("See Details")
     }
+  }
+
+  let showHideDetails;
+  if (seeDetails === "See Details" || seeDetails === "init") {
+    showHideDetails = "See Details"
+  } else if (seeDetails === "Hide Details") {
+    showHideDetails =  "Hide Details"
   }
 
   let toFixedDecimal =(value) =>{
@@ -42,7 +49,7 @@ const Meal = ({ meal }) => {
     </table>
     </div>)
     })}</div>
-  } else {
+  } else if (seeDetails === "Hide Details") {
     details = <div className="mealDetails">{meal.foods.map((food) => {
       return (
       <div className="foodDiv">
@@ -67,6 +74,8 @@ const Meal = ({ meal }) => {
     </table>
     </div>)
     })}</div>
+  } else if (seeDetails === "init") {
+    details = <div className="mealDetailsHidden"></div>
   }
 
   return (
@@ -91,7 +100,7 @@ const Meal = ({ meal }) => {
       </tbody>
     </table>
     {details}
-    <span className="seehide" onClick={handleDetails}>{seeDetails}</span>
+    <span className="seehide" onClick={handleDetails}>{showHideDetails}</span>
     </div>
   )
 
