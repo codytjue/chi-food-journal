@@ -1,6 +1,5 @@
 var schemas = require("./schemas.js")
 var axios = require("axios")
-const { appId, appKey } = require('../config.js')
 
 exports.addMeal = (req, res) => {
   let date = new Date();
@@ -53,20 +52,3 @@ exports.findGoal = (req, res) => {
   .then((result) => {res.status(200).send(result)})
 }
 
-exports.getNutritionInfo = (req, res) => {
-  let search = req.query.search
-  let searchObject = {query: search}
-  axios.post(
-        "https://trackapi.nutritionix.com/v2/natural/nutrients",
-        searchObject,
-        {
-          headers: {
-            "x-app-id": appId,
-            "x-app-key": appKey,
-            "x-remote-user-id": 0,
-          },
-        }
-      )
-      .then((result) => {res.send(result.data)})
-      .catch((err) => {console.error(err)})
-}
