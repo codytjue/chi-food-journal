@@ -12,10 +12,6 @@ app.use(express.static(__dirname + "/../client/dist"));
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-  res.send('Hello :)')
-})
-
 app.get('/meals', controller.findMealsToday)
 
 app.get('/meals/date', controller.findMealsByDate)
