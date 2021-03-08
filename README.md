@@ -6,6 +6,11 @@
 #  About
 
 Chi is a minimal diet tracking app built with the Nutrionix API. It allows for adding foods and meals, tracking macronutrients, and setting daily goals.
+
+<p align="center">
+  <img src="https://github.com/codytjue/chi-food-journal/blob/master/screenshots/chi_screenshot1.png?raw=true" width="600px"/>
+</p>
+
  
 
 # Demo
