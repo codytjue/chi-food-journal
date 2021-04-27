@@ -32,14 +32,29 @@ A live working demo can be seen [here](https://chi-food-journal.herokuapp.com/).
 
 Using the Nutritionix API, users can enter a quantity and name of a food and add it to a new meal. Meals can then be added towards daily totals and saved to be viewed later.
 
+<p align="center">
+  <img src="https://github.com/codytjue/chi-food-journal/blob/master/screenshots/chi_screenshot2.png?raw=true" width="600px"/>
+</p>
+
 ## Goal Setting and Tracking
 
 Goals can be set for calories and 3 other major macronutrients: fat, protein, and carbohydrates. Daily progress can then be viewed to allow users to visually approximate how they are doing in regard to their goals.
 
+<p align="center">
+  <img src="https://github.com/codytjue/chi-food-journal/blob/master/screenshots/chi_screenshot4.png?raw=true" width="600px"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/codytjue/chi-food-journal/blob/master/screenshots/chi_screenshot3.png?raw=true" width="600px"/>
+</p>
+
 ## Aesthetic Options
 
-Available in three distinct flavors. 
+Now available in three distinct flavors. 
 
+<p align="center">
+  <img src="https://github.com/codytjue/chi-food-journal/blob/master/screenshots/chi_settings.gif?raw=true" width="600px"/>
+</p>
 
 
 
