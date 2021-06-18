@@ -8,7 +8,7 @@ const Menu = ({ handleNewMeal, handleDateChange }) => {
 
   const [currentGoals, setGoals] = useState({});
 
-  const [dailyTotals, setTotals] = useState({});
+  const [dailyTotals, setTotals] = useState({calories: 0, carbs: 0, fat: 0, protein: 0});
 
   let handleAddMeal = () => {
     setStatus('meal');
@@ -157,7 +157,7 @@ const Menu = ({ handleNewMeal, handleDateChange }) => {
   let handleDailyGoalsButton = () => {
     setStatus('goals');
     axios.get('/meals')
-    .then((result) => {setTotals(result.data.totals)});
+    .then((result) => {console.log("TESTING:", result.data.totals); setTotals(result.data.totals)});
     axios.get('/goals')
     .then((result) => {setGoals(result.data)})
   }

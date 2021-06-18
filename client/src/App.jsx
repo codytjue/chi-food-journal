@@ -41,6 +41,7 @@ class App extends React.Component {
         chī
         </h1>
 
+
         </div>
         <div id="body">
         <Menu handleNewMeal={this.handleNewMeal.bind(this)} handleDateChange={this.handleDateChange.bind(this)}/>
