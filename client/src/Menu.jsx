@@ -157,7 +157,12 @@ const Menu = ({ handleNewMeal, handleDateChange }) => {
   let handleDailyGoalsButton = () => {
     setStatus('goals');
     axios.get('/meals')
-    .then((result) => {console.log("TESTING:", result.data.totals); setTotals(result.data.totals)});
+    .then((result) => {
+      console.log("TESTING:", result.data.totals)
+      if (result.data.totals) {
+        setTotals(result.data.totals);
+      }
+    })
     axios.get('/goals')
     .then((result) => {setGoals(result.data)})
   }
